@@ -13,16 +13,15 @@ int dp(int n, int cnt) {
 }
 
 int main() {
-    cin.sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-	int n;
-	cin >> n;
-	v.resize(n);
-	res.resize(2);
-	res[0].resize(n);
-	res[1].resize(n);
-	for (int i = 0; i < n; i++) {
-	    cin >> v[i];
-	}
-	cout << dp(n-1, 0);
+    cin.sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+    int n;
+    cin >> n;
+    v.resize(n);
+    res.resize(2);
+    res[0].resize(n);
+    res[1].resize(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    cout << dp(n-1, 0);
 }

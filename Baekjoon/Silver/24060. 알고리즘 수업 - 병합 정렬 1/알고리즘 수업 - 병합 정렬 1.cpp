@@ -29,8 +29,7 @@ void merge_sort(int arr[], int start, int end) {
 }
 
 int main() {
-    cin.sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
+    cin.sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
     int n;
     cin >> n >> k;
     int arr[n];
