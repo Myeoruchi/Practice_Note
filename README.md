@@ -1,2 +1,7 @@
 # Practice_Note
-프로그래밍 노트
+
+### Number of problems solved in this repo
+
+- Bronze : 13
+- Silver : 14
+- Gold : 3
