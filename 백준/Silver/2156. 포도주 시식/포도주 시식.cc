@@ -15,13 +15,12 @@ int main() {
     
     sum[0] = arr[0];
     sum[1] = arr[1] + arr[0];
-    sum[2] = arr[2] + max(arr[0], arr[1]);
-    sum[3] = arr[3] + max(arr[2] + arr[0], sum[1]);
+    sum[2] = max(sum[1], arr[2] + max(arr[0], arr[1]));
     
-    for (int i = 4; i < n; i++) {
-        sum[i] = arr[i] + max(arr[i-1] + max(sum[i-3], sum[i-4]), sum[i-2]);
+    for (int i = 3; i < n; i++) {
+        sum[i] = max(sum[i-1], arr[i] + max(sum[i-2], arr[i-1] + sum[i-3]));
     }
     
-    cout << max(sum[n-1], sum[n-2]);
+    cout << sum[n-1];
     return 0;
 }
