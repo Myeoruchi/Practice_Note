@@ -19,7 +19,7 @@ int main() {
     sum[3] = arr[3] + max(arr[2] + arr[0], sum[1]);
     
     for (int i = 4; i < n; i++) {
-        sum[i] = arr[i] + max(arr[i-1] + max(sum[i-3], sum[i-4]), max(sum[i-2], sum[i-3]));
+        sum[i] = arr[i] + max(arr[i-1] + max(sum[i-3], sum[i-4]), sum[i-2]);
     }
     
     cout << max(sum[n-1], sum[n-2]);
