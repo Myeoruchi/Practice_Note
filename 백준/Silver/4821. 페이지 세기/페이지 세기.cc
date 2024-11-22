@@ -1,7 +1,7 @@
 #include <iostream>
-#include <unordered_set>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
 int main(void) {
@@ -11,7 +11,7 @@ int main(void) {
     int n;
     
     while (cin >> n && n) {
-        unordered_set<int> page;
+        vector<bool> page(n+1);
         string str;
         cin >> str;
         
@@ -23,11 +23,11 @@ int main(void) {
             if (str.find('-') != string::npos) {
                 stringstream ss2(str);
                 ss2 >> a >> temp >> b;
-                for (; a <= b && a <= n; a++) { page.insert(a); }
+                for (; a <= b && a <= n; a++) { page[a] = true; }
             }
-            else if (str.length() <= 4 && stoi(str) <= n) { page.insert(stoi(str)); }
+            else if (str.length() <= 4 && stoi(str) <= n) { page[stoi(str)] = true; }
         }
         
-        cout << page.size() << '\n';
+        cout << count(page.begin(), page.end(), true) << '\n';
     }
 }
