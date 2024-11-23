@@ -4,8 +4,8 @@ using namespace std;
 
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, 1, 0, -1};
-int arr[1002][1002];
-bool visit[1002][1002];
+int arr[1000][1000];
+bool visit[1000][1000];
 int n, m;
 
 bool inRange(int x, int y) {
