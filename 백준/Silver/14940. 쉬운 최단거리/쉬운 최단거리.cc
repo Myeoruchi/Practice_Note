@@ -16,9 +16,9 @@ int main(void) {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
+    queue<pair<int, int>> q;
     cin >> n >> m;
     
-    queue<pair<int, int>> q;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             cin >> arr[i][j];
@@ -31,14 +31,11 @@ int main(void) {
     }
     
     while (!q.empty()) {
-        int x = q.front().first;
-        int y = q.front().second;
+        int x = q.front().first, y = q.front().second;
         q.pop();
-        
         for (int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if (inRange(nx, ny) && visit[nx][ny] == false && arr[nx][ny] == 1) {
+            int nx = x + dx[i], ny = y + dy[i];
+            if (inRange(nx, ny) && !visit[nx][ny] && arr[nx][ny]) {
                 q.push({nx, ny});
                 visit[nx][ny] = true;
                 arr[nx][ny] = arr[x][y] + 1;
@@ -48,7 +45,7 @@ int main(void) {
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (visit[i][j] == false && arr[i][j] != 0) { cout << "-1 "; }
+            if (!visit[i][j] && arr[i][j]) { cout << "-1 "; }
             else { cout << arr[i][j] << ' '; }
         }
         cout << '\n';
