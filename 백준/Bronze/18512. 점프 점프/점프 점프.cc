@@ -11,11 +11,11 @@ int main() {
     }
     else {
         while (cnt++ < 200) {
-            if (x < y) { x += (y - x) / a ? ((y - x) / a) * a : a; }
-            else if (x > y) { y += (x - y) / b ? ((x - y) / b) * b : b; }
-            else { cout << x; break; }
+            if (x < y) { x += a; }
+            else if (x > y) { y += b; }
+            else { cout << x; cnt = 0; break; }
         }
-        if (cnt > 200) { cout << -1; }
+        if (cnt) { cout << -1; }
     }
     return 0;
 }
