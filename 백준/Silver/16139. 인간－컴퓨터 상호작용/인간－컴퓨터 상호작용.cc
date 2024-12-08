@@ -10,37 +10,22 @@ int main() {
     int q;
     cin >> s >> q;
     
-    vector<vector<int>> v(26);
     int len = s.length();
+    vector<vector<int>> v(len);
+    vector<int> arr(26);
     for (int i = 0; i < len; i++) {
-        v[s[i]-'a'].emplace_back(i);
+        arr[s[i] - 'a']++;
+        v[i] = arr;
     }
     
     char alpha;
     int l, r, times;
     while (q--) {
         cin >> alpha >> l >> r;
-        times = 0;
-        
         int idx = alpha - 'a';
-        int size = v[idx].size();
-        for (int i = 0; i < size; i++) {
-            if (l <= v[idx][i] || i+1 == size) {
-                if (l > v[idx][i]) { times--; }
-                times -= i;
-                break;
-            }
-        }
-        
-        for (int i = 0; i < size; i++) {
-            if (r <= v[idx][i] || i+1 == size) {
-                if (r >= v[idx][i]) { times++; }
-                times += i;
-                break;
-            }
-        }
-        
+        times = v[r][idx] - (s[l] == alpha ? v[l][idx] - 1 : v[l][idx]);
         cout << times << '\n';
     }
+    
     return 0;
 }
