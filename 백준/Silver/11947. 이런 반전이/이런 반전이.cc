@@ -8,24 +8,16 @@ int main() {
     int t;
     cin >> t;
     
+    long long num;
     long long res;
-    string num;
     while (t--) {
         cin >> num;
         
-        if (num[0] >= '5') {
-            num[0] = '5';
-            for (int i = 1; i < num.length(); i++) {
-                num[i] = '0';
-            }
-            res = stoll(num);
-        }
-        else { res = stoll(num); }
+        res = 1;
+        while (res <= num) { res *= 10; }
         
-        for (int i = 0; i < num.length(); i++) {
-            num[i] = '9' - num[i] + '0';
-        }
-        res *= stoll(num);
+        if (res >> 1 <= num) { res = (res >> 1) * ((res >> 1) - 1); }
+        else { res = num * (res - num - 1); }
         
         cout << res << '\n';
     }
