@@ -13,23 +13,12 @@ int main() {
     int a, b;
     while (n--) {
         cin >> a;
-        switch (a) {
-            case 1:
-                cin >> b;
-                sum += b;
-                res ^= b;
-                break;
-            case 2:
-                cin >> b;
-                sum -= b;
-                res ^= b;
-                break;
-            case 3:
-                cout << sum << '\n';
-                break;
-            case 4:
-                cout << res << '\n';
-                break;
+        if (a < 3) {
+            cin >> b;
+            sum += a == 1 ? b : -b;
+            res ^= b;
         }
+        else if (a == 3) { cout << sum << '\n'; }
+        else { cout << res << '\n'; }
     }
 }
