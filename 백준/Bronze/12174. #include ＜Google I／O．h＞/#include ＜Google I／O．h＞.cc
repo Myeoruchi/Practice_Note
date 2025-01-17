@@ -14,13 +14,13 @@ int main() {
         cout << "Case #" << i << ": ";
         char asc = 0;
         for (int idx = 0; idx < s.length(); idx++) {
-            if (idx % 8 == 0 && idx) {
+            asc <<= 1;
+            asc += s[idx] == 'I' ? 1 : 0;
+            if ((idx+1) % 8 == 0) {
                 cout << asc;
                 asc = 0;
             }
-            asc <<= 1;
-            asc += s[idx] == 'I' ? 1 : 0;
         }
-        cout << asc << '\n';
+        cout << '\n';
     }
 }
