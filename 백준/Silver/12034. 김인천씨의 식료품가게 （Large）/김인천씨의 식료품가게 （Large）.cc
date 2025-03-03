@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stack>
 #include <queue>
 using namespace std;
 
@@ -18,21 +17,15 @@ int main() {
             cin >> arr[i];
         }
         
+        cout << "Case #" << i << ": ";
         queue<int> q;
-        stack<int> st;
-        for (int i = n*2-1; i >= 0; i--) {
+        for (int i = 0; i < n*2; i++) {
             if (!q.empty() && q.front() == arr[i]) {
-                st.push(q.front());
                 q.pop();
                 continue;
             }
-            q.push(arr[i] * 75 / 100);
-        }
-        
-        cout << "Case #" << i << ": ";
-        while (n--) {
-            cout << st.top() << ' ';
-            st.pop();
+            q.push(arr[i] * 4 / 3);
+            cout << arr[i] << ' ';
         }
         cout << '\n';
     }
