@@ -5,9 +5,9 @@ using namespace std;
 
 int main() {
     FAST_IO;
-    int team, player, remaining, my;
+    long long team, player, remaining, my, lowest, highest;
     cin >> team >> player >> remaining >> my;
-    int lowest = (remaining - my) >= team - 1 ? team : remaining - my + 1;
-    int highest = (remaining - my + player - 1) / player + 1;
+    lowest = (remaining - my) >= team - 1 ? team : remaining - my + 1;
+    highest = (remaining - my + player - 1) / player + 1;
     cout << lowest << ' ' << highest;
 }
