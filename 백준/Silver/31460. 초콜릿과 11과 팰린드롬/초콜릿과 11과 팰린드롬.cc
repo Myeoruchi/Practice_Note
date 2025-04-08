@@ -11,7 +11,7 @@ int main() {
         cin >> n;
         string ans = "0";
         while (--n) {
-            ans[ans.length()-1] = ans[ans.length()-1] + 1;
+            ans[ans.length()-1]++;
             ans += '1';
         }
         cout << ans << '\n';
