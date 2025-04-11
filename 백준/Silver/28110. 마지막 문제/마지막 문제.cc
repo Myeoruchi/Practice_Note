@@ -16,7 +16,7 @@ int main() {
     
     int size = 1, ans = -1;
     for (int i = 0; i < n-1; i++) {
-        if ((size >> 1) < (arr[i+1] - arr[i]) >> 1) {
+        if ((size >> 1) < (arr[i+1] - arr[i] >> 1)) {
             size = arr[i+1] - arr[i];
             ans = arr[i] + (size >> 1);
         }
