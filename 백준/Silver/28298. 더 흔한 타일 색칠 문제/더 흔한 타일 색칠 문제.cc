@@ -10,10 +10,10 @@ int main() {
     int n, m, k;
     cin >> n >> m >> k;
     vector<string> v(n);
-    for (auto &s: v) { cin >> s; }
+    for (string &s: v) { cin >> s; }
     
     int ans = 0, max = (n / k) * (m / k);
-    int cnt[26], idx[k][k];
+    int cnt[26];
     for (int i = 0; i < k; i++) {
         for (int j = 0; j < k; j++) {
             for (auto &e: cnt) { e = 0; }
@@ -24,14 +24,14 @@ int main() {
             }
             auto tmp = max_element(cnt, cnt + 26);
             ans += max - *tmp;
-            idx[i][j] = tmp - cnt;
+            char c = tmp - cnt + 'A';
+            for (int p = i; p < n; p += k) {
+                for (int q = j; q < m; q += k) {
+                    v[p][q] = c;
+                }
+            }
         }
     }
     cout << ans << '\n';
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << char(idx[i % k][j % k] + 'A');
-        }
-        cout << '\n';
-    }
+    for (const string &s: v) { cout << s << '\n'; }
 }
