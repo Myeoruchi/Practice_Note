@@ -30,12 +30,11 @@ int main() {
     }
     sort(roads.begin(), roads.end(), comp);
     for (int i = 1; i <= d; i++) {
-        ans[i] = i;
+        ans[i] = min(i, ans[i-1] + 1);
         while (idx < roads.size() && roads[idx].end == i) {
             ans[i] = min(ans[i], ans[roads[idx].start] + roads[idx].dist);
             idx++;
         }
-        ans[i] = min(ans[i], ans[i-1] + 1);
     }
     cout << ans[d];
 }
