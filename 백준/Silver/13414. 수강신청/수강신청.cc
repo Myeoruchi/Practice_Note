@@ -9,6 +9,7 @@ using namespace std;
 int main() {
     FAST_IO;
     unordered_map<string, int> um;
+    vector<pair<int, string>> v;
     int limit, n;
     string s;
     cin >> limit >> n;
@@ -16,10 +17,9 @@ int main() {
         cin >> s;
         um[s] = i;
     }
-    vector<pair<string, int>> v(um.begin(), um.end());
-    sort(v.begin(), v.end(), [](auto &a, auto &b) {
-        return a.second < b.second; });
+    for (auto &e: um) { v.emplace_back(e.second, e.first); }
+    sort(v.begin(), v.end());
     for (int i = 0; i < limit && i < v.size(); i++) {
-        cout << v[i].first << '\n';
+        cout << v[i].second << '\n';
     }
 }
