@@ -6,15 +6,14 @@ using namespace std;
 
 int main() {
     IO;
-    int n, m;
+    int n, m, arr[500000];
     cin >> n >> m;
-    vector<int> v(n);
-    for (int &e: v) { cin >> e; }
+    for (int &e: arr) { cin >> e; }
     
     int ans = 0, sum = 0;
     for (int i = 0, j = 0; i < n; i++) {
-        sum += v[i];
-        while (sum > m) { sum -= v[j++]; }
+        sum += arr[i];
+        while (sum > m) { sum -= arr[j++]; }
         ans = max(ans, sum);
     }
     cout << ans;
