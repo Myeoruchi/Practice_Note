@@ -10,9 +10,7 @@ int main() {
     if (n == 1) { cout << "1\n1 1"; }
     else {
         cout << 2 * n - 2 << '\n';
-        for (int i = 1; i <= n; i++) {
-            cout << "1 " << i << '\n';
-            if (1 < i && i < n) { cout << n << ' ' << i << '\n'; }
-        }
+        for (int i = 1; i <= n; i++) { cout << "1 " << i << '\n'; }
+        for (int i = 2; i < n; i++) { cout << n << ' ' << i << '\n'; }
     }
 }
