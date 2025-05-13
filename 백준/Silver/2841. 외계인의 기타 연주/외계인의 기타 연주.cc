@@ -8,7 +8,7 @@ int main() {
     IO;
     int n, p;
     cin >> n >> p;
-    vector<vector<int>> v(n+1);
+    vector<vector<int>> v(7);
     
     int cnt = 0, line, fret;
     while (n--) {
