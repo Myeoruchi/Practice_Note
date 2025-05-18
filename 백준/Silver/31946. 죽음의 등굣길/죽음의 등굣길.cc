@@ -26,11 +26,13 @@ int main() {
         auto t = q.front();
         int x = t.first, y = t.second;
         q.pop();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (!visit[i][j] && arr[i][j] == arr[x][y] && abs(i - x) + abs(j - y) <= d) {
-                    visit[i][j] = true;
-                    q.push({i, j});
+        for (int i = -d; i <= d; i++) {
+            for (int j = -d; j <= d; j++) {
+                int nx = x + i, ny = y + j;
+                if (0 > nx || n <= nx || 0 > ny || m <= ny) { continue; }
+                if (!visit[nx][ny] && arr[nx][ny] == arr[x][y] && abs(nx - x) + abs(ny - y) <= d) {
+                    visit[nx][ny] = true;
+                    q.push({nx, ny});
                 }
             }
         }
