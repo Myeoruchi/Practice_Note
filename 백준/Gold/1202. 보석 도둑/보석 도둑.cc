@@ -7,11 +7,6 @@ using ll = long long;
 
 #define IO cin.tie(0)->sync_with_stdio(0)
 
-bool cmp(pair<int, int> &a, pair<int, int> &b) {
-    if (a.first != b.first) { return a.first < b.first; }
-    return a.second > b.second;
-}
-
 int main() {
     IO;
     int n, k;
@@ -21,7 +16,7 @@ int main() {
     vector<bool> used(k);
     for (auto &e: gem) { cin >> e.first >> e.second; }
     for (int &e: bag) { cin >> e; }
-    sort(gem.begin(), gem.end(), cmp);
+    sort(gem.begin(), gem.end());
     sort(bag.begin(), bag.end());
     
     priority_queue<int> pq;
@@ -30,7 +25,7 @@ int main() {
     for (int &e: bag) {
         while (idx < n && gem[idx].first <= e) {
             pq.push(gem[idx].second);
-            idx++;
+            ++idx;
         }
         if (!pq.empty()) { sum += pq.top(); pq.pop(); }
     }
