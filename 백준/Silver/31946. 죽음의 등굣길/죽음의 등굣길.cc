@@ -27,7 +27,7 @@ int main() {
         int x = t.first, y = t.second;
         q.pop();
         for (int i = -d; i <= d; i++) {
-            for (int j = -d; j <= d; j++) {
+            for (int j = -d + abs(i); j <= d - abs(i); j++) {
                 int nx = x + i, ny = y + j;
                 if (0 > nx || n <= nx || 0 > ny || m <= ny) { continue; }
                 if (!visit[nx][ny] && arr[nx][ny] == arr[x][y] && abs(nx - x) + abs(ny - y) <= d) {
