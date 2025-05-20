@@ -10,12 +10,8 @@ int main() {
     int n; cin >> n;
     for (int i = 1; i <= n; i++) {
         dp[i] = 4;
-        int j = 1;
-        while (1) {
-            int pow = j * j;
-            if (i - pow < 0) { break; }
-            dp[i] = min(dp[i], dp[i - pow] + 1);
-            j++;
+        for (int j = 1; j * j <= i; j++) {
+            dp[i] = min(dp[i], dp[i - j * j] + 1);
         }
     }
     cout << dp[n];
