@@ -5,7 +5,7 @@ using namespace std;
 
 bool is_pal(string &s) {
     int len = s.length();
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < (len >> 1); i++) {
         if (s[i] != s[len - i - 1]) { return false; }
     }
     return true;
