@@ -13,19 +13,21 @@ int main() {
     bool reverse = false;
     int cnt = 0;
     while (n--) {
-        for (int i = 1; i <= k; i++) {
-            if (reverse) {
-                int t = dq.back();
+        if (reverse) {
+            for (int i = 1; i < k; i++) {
+                dq.push_front(dq.back());
                 dq.pop_back();
-                if (i < k) { dq.push_front(t); }
-                else { cout << t << '\n'; }
             }
-            else {
-                int t = dq.front();
+            cout << dq.back() << '\n';
+            dq.pop_back();
+        }
+        else {
+            for (int i = 1; i < k; i++) {
+                dq.push_back(dq.front());
                 dq.pop_front();
-                if (i < k) { dq.push_back(t); }
-                else { cout << t << '\n'; }
             }
+            cout << dq.front() << '\n';
+            dq.pop_front();
         }
         if (++cnt == m) {
             cnt = 0;
